@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+	{% include "nav.html" %}
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<div class="row">
+
+			{% include "menu.html" %}
+
+			<div class="col-md-9">
+
+				<div class="row carousel-holder">
+
+					<div class="panel panel-default">
+						<!-- Default panel contents -->
+						<div class="panel-heading">
+							<b>Student List</b>
+						</div>
+
+						<!-- Table -->
+						<table class="table table-striped">
+							<tr>
+								<th>Roll No</th>
+								<th>Name</th>
+								<th>Age</th>
+								<th>Gender</th>
+								<!-- <th>Address</th>
+								<th>Phone</th> -->
+								<th>Operations</th>
+							</tr>
+							{% for student in student_list %}
+							<tr>
+								<td>{{ student.id }}</td>
+								<td><a href="{% url 'details_student' student.id %}" >{{student.name }}</a></td>
+								<td>{{ student.age }}</td>
+								<td>{{ student.get_gender_display }}</td>
+							<!-- 	<td>{{ student.address }}</td>
+								<td>{{ student.phone }}</td> -->
+								<td><a class="glyphicon glyphicon-edit" href="{% url 'update_student' student.id %}" /> &nbsp; <a class="glyphicon glyphicon-trash" href="{% url 'delete_student' student.id %}" /></td>
+							</tr>
+							{% endfor %}
+						</table>
+					</div>
+
+				</div>
+
+
+
+			</div>
+
+		</div>
+
+	</div>
+	
+	{% include "footer.html" %}
+
+{% endblock %}
+

@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block content %}
+
+	{% include "nav.html" %}
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<div class="row">
+
+			{% include "menu.html" %}
+
+			<div class="col-md-9">
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">Create Marks</div>
+						<form id="user_form" method="POST" action="">
+						
+							{% csrf_token %}
+							
+						<table class="table">
+								<tr>
+									<td><label>Student</label></td>
+									<td>{{form.student}}</td>
+								</tr>
+								<tr>
+									<td><label>Subject</label></td>
+									<td>{{ form.subject }}</td>
+								</tr>
+								<tr>
+									<td><label>Marks</label></td>
+									<td>{{ form.marks }}</td>
+								</tr>
+								<tr>
+									<td>
+										<button type="submit" class="btn btn-primary">Submit</button>
+									</td>
+									<td></td>
+								</tr>
+								
+							</table>
+						</form>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<!-- /.container -->
+
+	<div class="container">
+
+		<hr>
+
+		<!-- Footer -->
+		<footer>
+			<div class="row">
+				<div class="col-lg-12">
+					<p>Copyright &copy; Python University 2014</p>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+	<!-- /.container -->
+
+{% endblock %}
+

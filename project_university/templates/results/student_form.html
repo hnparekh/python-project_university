@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+
+	{% include "nav.html" %}
+
+	<!-- Page Content -->
+	<div class="container">
+
+		<div class="row">
+
+			{% include "menu.html" %}
+
+			<div class="col-md-9">
+
+				<div class="row carousel-holder">
+
+					<div class="panel panel-default">
+						<!-- Default panel contents -->
+						<div class="panel-heading">
+							<b>Student Registration</b>
+						</div>
+
+						<form id="user_form" method="post"
+							action="/results/create_student/" enctype="multipart/form-data">
+
+							{% csrf_token %}
+
+							<!-- Display each form. The as_p method wraps each element in a paragraph
+					                 (<p>) element. This ensures each element appears on a new line,
+					                 making everything look neater. -->
+							<!-- Table -->
+							<table class="table table-striped">
+								<tr>
+									<td>Name</td>
+									<td>{{ form.name }}</td>
+								</tr>
+								<tr>
+									<td>Age</td>
+									<td>{{ form.age }}</td>
+								</tr>
+								<tr>
+									<td>Gender</td>
+									<td>{{ form.gender }}</td>
+								</tr>
+								<tr>
+									<td>Address</td>
+									<td>{{ form.address }}</td>
+								</tr>
+								<tr>
+									<td>Phone</td>
+									<td>{{ form.phone }}</td>
+								</tr>
+							</table>
+
+							<!-- Provide a button to click to submit the form. -->
+							<input type="submit" name="submit" class="btn btn-success" value="Save" />
+						</form>
+
+					</div>
+
+				</div>
+				
+			</div>
+
+		</div>
+
+	</div>
+	
+	{% include "footer.html" %}
+	
+
+{% endblock %}

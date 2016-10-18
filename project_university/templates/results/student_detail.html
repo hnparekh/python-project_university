@@ -1,0 +1,53 @@
+{% extends "base.html" %} 
+{% block content %} 
+{% include "nav.html" %}
+
+<!-- Page Content -->
+<div class="container">
+
+	<div class="row">
+
+		{% include "menu.html" %}
+
+		<div class="col-md-9">
+
+			<div class="row carousel-holder">
+
+				<div class="panel panel-default">
+					<!-- Default panel contents -->
+					<div class="panel-heading">
+						<b>Student Details</b>
+					</div>
+					
+						<table class="table">
+							<tr>
+								<td><label>Name</label></td>
+								<td>{{ object.name }}</td>
+							</tr>
+							<tr>
+								<td><label>Age</label></td>
+								<td>{{ object.age }}</td>
+							</tr>
+							<tr>
+								<td><label>Gender</label></td>
+								<td>{{ object.get_gender_display }}</td>
+							</tr>
+							<tr>
+								<td><label>Address</label></td>
+								<td>{{ object.address }}</td>
+							</tr>
+							<tr>
+								<td><label>Phone</label></td>
+								<td>{{ object.phone }}</td>
+							</tr>
+						</table>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% include "footer.html" %}
+	
+
+{% endblock %}
